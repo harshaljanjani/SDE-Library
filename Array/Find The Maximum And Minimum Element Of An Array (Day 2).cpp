@@ -1,4 +1,6 @@
 // approach: naive (loop through the array to find min and max)
+#include <bits/stdc++.h>
+using namespace std;
 class Solution
 {
 public:
