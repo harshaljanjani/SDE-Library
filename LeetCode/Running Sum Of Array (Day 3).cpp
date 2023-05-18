@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 // naive approach:
 /* idea:
 1) calculate the sum of all the elements to the left of the i-th element
