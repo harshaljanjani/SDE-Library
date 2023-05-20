@@ -34,7 +34,7 @@ public:
     }
 };
 
-// optimized solution:
+// optimized solution
 // idea: 1) sort both the arrays in ascending order
 // 2) initialize two integer pointers, i and j at 0, for nums1 and nums2 respectively
 // 3) if nums1[i] > nums2[j]: for j to catch up to i, increase j
