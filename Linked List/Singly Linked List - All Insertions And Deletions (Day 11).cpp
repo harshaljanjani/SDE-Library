@@ -107,6 +107,71 @@ void insert_at_position(Node *&head, int position, int value)
     newNode->link = temp;
 }
 
+// ALL DELETIONS:
+// deletion at the head of a singly linked list
+void delete_at_head(Node *&head)
+{
+    // edge case: if the linked list has no elements
+    if (head == NULL)
+    {
+        cout << "Underflow, The Linked List Is Empty" << endl;
+        return;
+    }
+    Node *iterNode = head;
+    head = iterNode->link;
+    free(iterNode);
+}
+
+// deletion at the tail of a singly linked list
+void delete_at_tail(Node *&head)
+{
+    // edge case: if the linked list has no elements
+    if (head == NULL)
+    {
+        cout << "Underflow, The Linked List Is Empty" << endl;
+        return;
+    }
+    // need two pointers, to get ultimate and penultimate nodes of the linked list
+    // set the link of the penultimate node as NULL, and free the last node in memory
+    Node *tail = head->link;
+    Node *prev_tail = head;
+    while (tail->link != NULL)
+    {
+        tail = tail->link;
+        prev_tail = prev_tail->link;
+    }
+    prev_tail->link = NULL;
+    free(tail);
+}
+
+// deletion in the middle (at a given position)
+void delete_at_position(Node *&head, int position)
+{
+    // smart work
+    if (position == 0)
+    {
+        delete_at_head(head);
+        return;
+    }
+    // edge case: if the linked list has no elements
+    if (head == NULL)
+    {
+        cout << "Underflow, The Linked List Is Empty" << endl;
+        return;
+    }
+    Node *posNode = head->link;
+    Node *prevposNode = head;
+    // since positionNode is head->link, we need to decrement position by 1, to get posNode to the correct position by the end of the loop
+    position -= 1;
+    while (position--)
+    {
+        posNode = posNode->link;
+        prevposNode = prevposNode->link;
+    }
+    prevposNode->link = posNode->link;
+    free(posNode);
+}
+
 int main(void)
 {
     Node *head = new Node(10);
@@ -124,5 +189,20 @@ int main(void)
     insert_at_position(head, 0, 44);
     print(head);
     insert_at_position(head, 6, 34);
+    print(head);
+    // DELETION:
+    cout << "Deletion At Head/Tail/Position" << endl;
+    print(head);
+    delete_at_head(head);
+    print(head);
+    delete_at_head(head);
+    print(head);
+    delete_at_position(head, 2);
+    print(head);
+    delete_at_tail(head);
+    print(head);
+    delete_at_position(head, 0);
+    print(head);
+    delete_at_position(head, 1);
     print(head);
 }
