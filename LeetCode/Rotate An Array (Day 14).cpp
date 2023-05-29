@@ -27,6 +27,8 @@ public:
     void rotate(vector<int> &nums, int k)
     {
         int n = nums.size();
+        // mistake (forgot edge case optimization): k = k % n (check if k is in range)
+        k %= n;
         reverse(nums, 0, n - k - 1);
         reverse(nums, n - k, nums.size() - 1);
         reverse(nums, 0, nums.size() - 1);
