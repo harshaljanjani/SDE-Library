@@ -1,12 +1,12 @@
-// Key Notes Of Errors:
-// 1) Very Important : Condition: "count < r*c".
-// 2) Possible Mistake : while(startRow != endRow || startCol != endCol) -> Seems infinitely more intuitive, but dry-run proves it's not the correct approach.
+// key notes of errors:
+// 1) very important (condition): "count < r * c"
+// 2) possible mistake : while(startRow != endRow || startCol != endCol) seems infinitely more intuitive, but dry-run proves it's not the correct approach
 #include <bits/stdc++.h>
 using namespace std;
 class Solution
 {
 public:
-    // Function to return a list of integers denoting spiral traversal of matrix.
+    // function to return a list of integers denoting spiral traversal of matrix
     vector<int> spirallyTraverse(vector<vector<int>> matrix, int r, int c)
     {
         int startRow = 0, startCol = 0, endRow = r - 1, endCol = c - 1;

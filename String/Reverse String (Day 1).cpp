@@ -1,5 +1,5 @@
-// Most Efficient Solution: reverse(s.begin(),s.end())
-// Without STL Functions:
+// most efficient solution: reverse(s.begin(),s.end())
+// without STL functions:
 class Solution
 {
 public:

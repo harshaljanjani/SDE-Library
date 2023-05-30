@@ -1,6 +1,5 @@
-/* approach: not naive
-leetCode (medium) level problem
-*/
+// idea: not naive
+// leetCode (medium) level problem
 #include <bits/stdc++.h>
 using namespace std;
 class Solution

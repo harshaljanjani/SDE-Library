@@ -6,7 +6,7 @@ using namespace std;
  1) the value of i and j must be in the range of 0 to n-1
  2) the value of m[i][j] = 1 (which means the node is not an obstacle, but is infact traversable)
  3) the node has not been visited yet (!visited[i][j] or visited[i][j] == 0)
- B) pathfinder(): the main logic of pathfinding, with backtracking, a recursive function call structure and a base conditon as suited to solve the problem.
+ B) pathfinder(): the main logic of pathfinding, with backtracking, a recursive function call structure and a base conditon as suited to solve the problem
 */
 class Solution
 {
