@@ -103,3 +103,48 @@ int main()
     }
     return 0;
 }
+
+// method #2: three address code
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+int main()
+{
+    char expr[100];
+    int i, j, k, l;
+    char op[10], opnd[10][10], arg1[10], arg2[10], res[10];
+    printf("Enter the expression: ");
+    scanf("%s", expr);
+    i = 0;
+    j = 0;
+    k = 0;
+    l = 0;
+    while (expr[i] != '\0')
+    {
+        if (isalnum(expr[i]))
+        {
+            opnd[j][k++] = expr[i];
+        }
+        else if (expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/')
+        {
+            opnd[j][k] = '\0';
+            j++;
+            k = 0;
+            op[l++] = expr[i];
+        }
+        i++;
+    }
+    opnd[j][k] = '\0';
+    strcpy(arg1, opnd[0]);
+    strcpy(arg2, opnd[1]);
+    sprintf(res, "t%d", 1); // Changed the starting temporary variable to t1
+    printf("%s = %s %c %s\n", res, arg1, op[0], arg2);
+    for (i = 1; i < j; i++)
+    {
+        strcpy(arg1, res);
+        strcpy(arg2, opnd[i + 1]);
+        sprintf(res, "t%d", i + 1); // Updated the temporary variable in the loop
+        printf("%s = %s %c %s\n", res, arg1, op[i], arg2);
+    }
+    return 0;
+}
